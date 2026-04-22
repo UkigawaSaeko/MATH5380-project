@@ -23,6 +23,10 @@ Required sheets: **`Index returns in USD`**, **`Market values in USD`**.
 - Packages: `pandas`, `numpy`, `scipy`, `matplotlib`, `openpyxl` (for Excel export).  
 - A **NumPy 1.26.x** line is often easier with Anaconda binary stacks; NumPy 2.x may require matching wheels for all compiled dependencies.
 
+## Investment Universe
+
+Our investment universe satisfies the diversification requirement by including both equity and fixed-income categories. Specifically, it spans U.S., developed ex-U.S., and emerging-market equities across value, growth, and small-cap styles, as well as several bond sectors including U.S. aggregate, global aggregate, inflation-linked, municipal, and high-yield bonds. For each rebalancing year, benchmark weights are derived from the provided market value dataset.
+
 ## Rationale for the Two View Portfolios
 
 Our two views are motivated by a coherent macroeconomic and market-structure narrative.
