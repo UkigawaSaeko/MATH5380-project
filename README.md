@@ -47,6 +47,42 @@ Because the full 17×17 covariance matrix is large and changes every year, we re
 
 The figure shows strong positive dependence within equity assets and within bond assets, while the dependence across the two major asset classes is lower. This suggests that the covariance matrix captures both common within-class risk and meaningful cross-asset diversification. In addition, Global High Yield bonds appear more closely related to equities than other bond sectors, which is consistent with their higher credit-risk exposure.
 
+## Black–Litterman Expected Return Estimation
+
+For each annual rebalancing date, we estimate expected returns for all assets in the investment universe using the **Black–Litterman model**. The purpose of this step is to combine **market-implied equilibrium returns** with our **subjective views** in a disciplined way, rather than relying only on historical average returns.
+
+We first compute the **market benchmark weights** from the market value data for each year. Using these benchmark weights and the estimated annualized covariance matrix, we derive the **implied equilibrium excess returns**:
+
+\[
+\pi = \delta \Sigma w_{mkt}
+\]
+
+where \(\delta\) is the risk-aversion parameter, \(\Sigma\) is the annualized covariance matrix, and \(w_{mkt}\) is the vector of market-capitalization benchmark weights.
+
+Next, we introduce two relative view portfolios through the \(P\) matrix and the \(Q\) vector:
+
+- **View 1:** Russell 1000 Growth will outperform MSCI World Ex USA Growth NR USD  
+- **View 2:** Bloomberg Barclays US Aggregate will outperform Bloomberg Barclays Global High Yield USD
+
+These views are intentionally set to be **mild**, so that the final Black–Litterman expected returns remain close to the market-implied equilibrium returns. This is consistent with the requirement that confidence in the views should be sufficiently weak.
+
+The posterior expected return vector is then computed by blending the equilibrium returns with the views:
+
+\[
+\mu_{BL}
+=
+\left[
+(\tau \Sigma)^{-1} + P^\top \Omega^{-1} P
+\right]^{-1}
+\left[
+(\tau \Sigma)^{-1}\pi + P^\top \Omega^{-1} Q
+\right]
+\]
+
+where \(\tau\) controls the uncertainty in the prior equilibrium returns and \(\Omega\) represents the uncertainty of the views. In our implementation, the confidence level is kept conservative so that the model only introduces **moderate tilts** away from the benchmark.
+
+The resulting Black–Litterman expected returns are re-estimated **every year** and used as inputs to the portfolio optimization. To satisfy the project requirement, the optimized portfolio is constrained so that each asset’s deviation from the market benchmark weight remains within **\(\pm 5\%\)**. Therefore, the Black–Litterman model in this project does not produce extreme active bets, but instead generates a controlled and realistic adjustment around the benchmark portfolio.
+
 ## How to run
 
 1. **Notebook**  
