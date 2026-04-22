@@ -71,6 +71,9 @@ The posterior expected return vector is then computed by blending the equilibriu
 where $\tau$ controls the uncertainty in the prior equilibrium returns and $\Omega$ represents the uncertainty of the views. In our implementation, the confidence level is kept conservative so that the model only introduces **moderate tilts** away from the benchmark.
 
 The resulting Black–Litterman expected returns are re-estimated **every year** and used as inputs to the portfolio optimization. To satisfy the project requirement, the optimized portfolio is constrained so that each asset’s deviation from the market benchmark weight remains within **$\pm 5\%$**. Therefore, the Black–Litterman model in this project does not produce extreme active bets, but instead generates a controlled and realistic adjustment around the benchmark portfolio.
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/45f67144-8e6a-4349-802a-ef7e5a7dee3f" />
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/af319a45-dbcf-4b71-914c-6bd1ea5e4eb1" />
+
 
 ## How to run
 
