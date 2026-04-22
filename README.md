@@ -41,7 +41,9 @@ These two views are designed to be **complementary across asset classes**. Inste
 
 For each annual rebalancing date, we estimate the covariance matrix of asset returns using the most recent 36 months of prior monthly returns. The sample covariance matrix is annualized by multiplying by 12. This estimation is repeated every year using only information available at the rebalancing date, which avoids look-ahead bias.
 
-Because the full 17×17 covariance matrix is large and changes every year, we report a representative covariance (or correlation) heatmap for one rebalancing year in the main text, while the full yearly matrices are available upon request / in the appendix.
+Because the full 17×17 covariance matrix is large and changes every year, we report a representative correlation heatmap for one rebalancing year in the main text, while the full yearly matrices are available upon request.
+<img width="1150" height="989" alt="image" src="https://github.com/user-attachments/assets/5fcd834a-2c0c-4b1d-b0f9-2030be664523" />
+The heatmap shows a clear block structure in the covariance relationships. Equity assets have strong positive co-movement with one another, while bond sectors also cluster together with relatively high internal dependence. By contrast, the dependence between equities and high-quality bond sectors is lower, indicating meaningful diversification benefits across major asset classes. In addition, Global High Yield bonds appear more closely linked to equities than other bond sectors, which is consistent with their greater exposure to credit risk.
 
 ## How to run
 
