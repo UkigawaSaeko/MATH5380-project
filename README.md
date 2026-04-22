@@ -23,6 +23,16 @@ Required sheets: **`Index returns in USD`**, **`Market values in USD`**.
 - Packages: `pandas`, `numpy`, `scipy`, `matplotlib`, `openpyxl` (for Excel export).  
 - A **NumPy 1.26.x** line is often easier with Anaconda binary stacks; NumPy 2.x may require matching wheels for all compiled dependencies.
 
+## Rationale for the Two View Portfolios
+
+Our two views are motivated by a coherent macroeconomic and market-structure narrative.
+
+On the equity side, we impose a mild preference for **U.S. growth equities** over **non-U.S. developed growth equities**. This view reflects the relative depth, liquidity, and information efficiency of the U.S. market, which may provide a structural advantage for U.S. growth stocks compared with their developed ex-U.S. counterparts.
+
+On the fixed-income side, we impose a mild preference for **U.S. aggregate bonds** over **global high-yield bonds**. This reflects a more defensive allocation preference toward higher-quality duration exposure rather than credit-sensitive cyclical beta, especially in an environment where risk repricing and liquidity conditions may matter.
+
+These two views are designed to be **complementary across asset classes**. Instead of concentrating multiple views on the same style dimension, we introduce one view in equities and one view in fixed income, which helps maintain diversification in the source of active bets.
+
 ## How to run
 
 1. **Notebook**  
