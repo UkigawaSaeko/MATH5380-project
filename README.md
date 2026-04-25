@@ -137,57 +137,96 @@ The optimized portfolio slightly outperformed the benchmark over the full backte
 
 ### Portfolio Weights
 
-**Optimal Portfolio Weights Over Time**
-
+#### Optimal Portfolio Weights Over Time
 ![Optimal Weights](figures/weights_opt.png)
 
-The optimal portfolio shows persistent tilts relative to the market benchmark. In particular, the model tends to overweight growth-oriented equities and underweight certain lower-return segments. These tilts reflect the investor views incorporated through the Black–Litterman framework.
+The optimal portfolio shows persistent tilts relative to the market benchmark. In particular, the model tends to overweight growth-oriented equities and underweight certain lower-return segments.
+
+#### Sample Optimal Weights (Head)
+PASTE_WEIGHTS_OPT_TABLE_HERE
 
 ---
 
-**Market Weights Over Time**
-
+#### Market Weights Over Time
 ![Market Weights](figures/weights_mkt.png)
 
-Market weights remain relatively stable over time, with equities dominating the allocation and bonds providing diversification. These serve as the baseline benchmark against which the optimal portfolio is constructed.
+Market weights remain relatively stable over time and serve as the benchmark for comparison.
+
+#### Sample Market Weights (Head)
+PASTE_WEIGHTS_MKT_TABLE_HERE
 
 ---
 
 ### Black–Litterman Adjustments
 
-**BL Adjustment (BL − π)**
-
+#### BL Adjustment (BL − π)
 ![BL Adjustment](figures/bl_adjustment.png)
 
-The adjustment plot shows how the Black–Litterman model modifies the market-implied expected returns. The deviations are generally moderate, indicating that the views are incorporated with controlled confidence rather than overwhelming the prior.
+The Black–Litterman adjustment reflects how investor views modify market-implied returns. The changes are moderate, indicating balanced confidence.
 
 ---
 
 ### Expected Returns
 
-**Average BL Expected Returns**
-
+#### Average BL Expected Returns
 ![BL Returns](figures/bl_returns.png)
 
-The average BL expected returns highlight the relative attractiveness of different asset classes after incorporating investor views. Assets with consistently higher adjusted returns receive larger weights in the optimized portfolio.
+Assets with higher adjusted returns receive larger weights in the optimized portfolio.
+
+#### Sample BL Expected Returns (Head)
+PASTE_BL_TABLE_HERE
+
+---
+
+### Parameters
+
+The model parameters are fixed over time.
+
+#### Parameters (Head)
+|      |   delta |   tau |   omega_scale |
+|-----:|--------:|------:|--------------:|
+| 2008 |     2.5 |  0.05 |             4 |
+| 2009 |     2.5 |  0.05 |             4 |
+| 2010 |     2.5 |  0.05 |             4 |
+| 2011 |     2.5 |  0.05 |             4 |
+| 2012 |     2.5 |  0.05 |             4 |
 
 ---
 
 ## Part 8: Risk Analysis (Final Year)
 
 ### Volatility (Final Year)
-
 ![Volatility](figures/volatility.png)
 
-The volatility comparison shows clear differences across asset classes. Equity segments, especially small-cap and emerging markets, exhibit higher risk, while fixed income assets such as US Aggregate bonds display significantly lower volatility.
+Equity assets exhibit higher volatility, while bond indices remain more stable.
+
+#### Volatility Table
+|                                                |   Ann Vol |
+|:-----------------------------------------------|----------:|
+| Russell 1000 Value                             | 0.168916  |
+| Russell 1000 Growth                            | 0.206188  |
+| Russell 2000 Value                             | 0.237681  |
+| Russell 2000 Growth                            | 0.243329  |
+| MSCI World Ex USA Value NR USD                 | 0.161438  |
+| MSCI World Ex USA Growth NR USD                | 0.189677  |
+| MSCI World Ex USA Small Value NR USD           | 0.174922  |
+| MSCI World Ex USA Small Growth NR USD          | 0.199732  |
+| MSCI EM Value NR USD                           | 0.161875  |
+| MSCI EM Growth NR USD                          | 0.19549   |
+| MSCI EM Small Value NR USD                     | 0.144222  |
+| MSCI EM Small Growth NR USD                    | 0.165901  |
+| Bloomberg Barclays US Aggregate                | 0.0783193 |
+| Bloomberg Barclays Global Aggregate x USD      | 0.109363  |
+| Bloomberg Barclays Global Inflation-Linked USD | 0.116647  |
+| Bloomberg Barclays US Municipal Bond           | 0.076583  |
+| Bloomberg Barclays Global High Yield USD       | 0.0953254 |
 
 ---
 
 ### Correlation Matrix
+![Correlation Matrix](figures/corr.png)
 
-![Correlation](figures/corr.png)
-
-The correlation matrix illustrates the dependence structure across assets. Equities tend to be positively correlated with each other, while bonds show lower or even negative correlations with equities, providing diversification benefits in the portfolio construction.
+Equities are highly correlated, while bonds provide diversification benefits.
 
 
 ## How to run
