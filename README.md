@@ -133,6 +133,63 @@ The portfolio generally tracks the benchmark closely, with moderate year-to-year
 The optimized portfolio slightly outperformed the benchmark over the full backtest period, with a higher geometric annual return and lower annualized volatility. It also produced a positive annualized active return with relatively low tracking error, resulting in a positive information ratio.
 
 
+## Part 7: Additional Quantities
+
+### Portfolio Weights
+
+**Optimal Portfolio Weights Over Time**
+
+![Optimal Weights](figures/weights_opt.png)
+
+The optimal portfolio shows persistent tilts relative to the market benchmark. In particular, the model tends to overweight growth-oriented equities and underweight certain lower-return segments. These tilts reflect the investor views incorporated through the Black–Litterman framework.
+
+---
+
+**Market Weights Over Time**
+
+![Market Weights](figures/weights_mkt.png)
+
+Market weights remain relatively stable over time, with equities dominating the allocation and bonds providing diversification. These serve as the baseline benchmark against which the optimal portfolio is constructed.
+
+---
+
+### Black–Litterman Adjustments
+
+**BL Adjustment (BL − π)**
+
+![BL Adjustment](figures/bl_adjustment.png)
+
+The adjustment plot shows how the Black–Litterman model modifies the market-implied expected returns. The deviations are generally moderate, indicating that the views are incorporated with controlled confidence rather than overwhelming the prior.
+
+---
+
+### Expected Returns
+
+**Average BL Expected Returns**
+
+![BL Returns](figures/bl_returns.png)
+
+The average BL expected returns highlight the relative attractiveness of different asset classes after incorporating investor views. Assets with consistently higher adjusted returns receive larger weights in the optimized portfolio.
+
+---
+
+## Part 8: Risk Analysis (Final Year)
+
+### Volatility (Final Year)
+
+![Volatility](figures/volatility.png)
+
+The volatility comparison shows clear differences across asset classes. Equity segments, especially small-cap and emerging markets, exhibit higher risk, while fixed income assets such as US Aggregate bonds display significantly lower volatility.
+
+---
+
+### Correlation Matrix
+
+![Correlation](figures/corr.png)
+
+The correlation matrix illustrates the dependence structure across assets. Equities tend to be positively correlated with each other, while bonds show lower or even negative correlations with equities, providing diversification benefits in the portfolio construction.
+
+
 ## How to run
 
 1. **Notebook**  
