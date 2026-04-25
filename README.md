@@ -74,6 +74,64 @@ The resulting Black–Litterman expected returns are re-estimated **every year**
 <img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/45f67144-8e6a-4349-802a-ef7e5a7dee3f" />
 <img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/af319a45-dbcf-4b71-914c-6bd1ea5e4eb1" />
 
+## Optimize Portfolio Weights
+For each rebalance year, we construct the target portfolio using a long-only mean-variance optimization framework. The optimization uses the annualized covariance matrix estimated from the prior 36 months of returns, the Black-Litterman blended expected returns, and the same risk-aversion parameter used in the market-implied return step.
+
+The portfolio is obtained by solving
+
+$$
+\min_w \; \frac{1}{2}\delta w^\top \Sigma w - \mu_{BL}^\top w
+$$
+
+subject to the following constraints:
+
+- long-only weights ($w_i \ge 0$),
+- full investment ($\sum_i w_i = 1$),
+- and benchmark-relative bounds so that portfolio weights remain close to benchmark weights (approximately within $\pm 5\%$ when feasible).
+
+This setup keeps the optimized portfolio close to the benchmark while still allowing moderate tilts based on the Black-Litterman expected returns. In our results, the optimized portfolio remains broadly diversified and avoids extreme active bets.
+
+<img width="1182" height="489" alt="image" src="https://github.com/user-attachments/assets/96f85b63-48b1-41d3-a14a-69a169e5cf59" />
+
+**Figure 4. Benchmark vs. optimized portfolio weights for the final holding year.**  
+The optimized portfolio remains close to the benchmark while making moderate reallocations across assets.
+
+## Backtest Your Portfolio
+After computing the optimized portfolio weights at each year-end rebalance date, we apply those weights to the monthly asset returns in the following calendar year. This timing ensures that each holding-year portfolio only uses information available up to the prior rebalance date and therefore avoids look-ahead bias.
+
+Using the monthly portfolio and benchmark return series, we evaluate performance through three groups of outputs:
+
+- **Gross Returns**: growth of \$1 invested in the optimized portfolio and in the benchmark,
+- **Total Return Statistics**: geometrically annualized return and annualized volatility for both the portfolio and the benchmark,
+- **Active Return Statistics**: annualized active return, tracking error, and information ratio relative to the benchmark.
+
+The annual return comparison shows that the optimized portfolio generally tracks the benchmark closely, while still producing moderate year-to-year differences due to the Black-Litterman tilts.
+
+<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/ba465f04-5208-4b78-b023-7d712e92ece3" />
+
+
+**Figure 5. Annual return comparison between the optimized portfolio and the benchmark.**  
+The portfolio generally tracks the benchmark closely, with moderate year-to-year differences driven by the Black-Litterman tilts.
+
+### Backtest Results
+
+#### Total Return Statistics
+
+| Metric | Portfolio | Benchmark |
+|---|---:|---:|
+| Geometric Annual Return | 4.76% | 4.44% |
+| Annualized Volatility | 8.78% | 10.01% |
+
+#### Active Return Statistics
+
+| Metric | Value |
+|---|---:|
+| Annualized Active Return | 0.19% |
+| Tracking Error | 1.71% |
+| Information Ratio | 0.11 |
+
+The optimized portfolio slightly outperformed the benchmark over the full backtest period, with a higher geometric annual return and lower annualized volatility. It also produced a positive annualized active return with relatively low tracking error, resulting in a positive information ratio.
+
 
 ## How to run
 
