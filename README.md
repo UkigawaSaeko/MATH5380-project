@@ -142,8 +142,6 @@ The optimized portfolio slightly outperformed the benchmark over the full backte
 
 The optimal portfolio shows persistent tilts relative to the market benchmark. In particular, the model tends to overweight growth-oriented equities and underweight certain lower-return segments.
 
-#### Sample Optimal Weights (Head)
-PASTE_WEIGHTS_OPT_TABLE_HERE
 
 ---
 
@@ -152,8 +150,6 @@ PASTE_WEIGHTS_OPT_TABLE_HERE
 
 Market weights remain relatively stable over time and serve as the benchmark for comparison.
 
-#### Sample Market Weights (Head)
-PASTE_WEIGHTS_MKT_TABLE_HERE
 
 ---
 
@@ -174,7 +170,7 @@ The Black–Litterman adjustment reflects how investor views modify market-impli
 Assets with higher adjusted returns receive larger weights in the optimized portfolio.
 
 #### Sample BL Expected Returns (Head)
-PASTE_BL_TABLE_HERE
+The BL expected returns are summarized in the figures above.
 
 ---
 
